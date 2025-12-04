@@ -1,0 +1,98 @@
+{
+  "name": "timbuk-synthesizer",
+  "version": "1.0{
+  "name": "Timb{
+  "name": "Timbuk Analog Modelling Synthesizer",
+  "version": "1.0.0",
+  "author": "Sam Soko",
+  "buildDate": "2025-11-29T04:21:08.157Z",
+  "platforms": [
+    "Windows",
+    "macOS"
+  ],
+  "requirements": {
+    "windows": "Windows 10+",
+    "macos": "macOS 10.13+",
+    "nodejs": "16+",
+    "memory": "4GB RAM minimum",
+    "storage": "200MB free space"
+  },
+  "features": [
+    "Dual oscillators with sine, sawtooth, square, triangle waves",
+    "Voltage-controlled filter (lowpass, highpass, bandpass, notch)",
+    "ADSR envelopes for amplitude and filter",
+    "LFO with pitch, filter, and amplitude modulation",
+    "Built-in reverb and delay effects",
+    "Real-time oscilloscope and spectrum analyzer",
+    "Virtual piano keyboard with computer keyboard mapping",
+    "Patch management with save/load functionality",
+    "8 factory patches included"
+  ]
+}uk Analog Modelling Synthesizer",
+  "version": "1.0.0",
+  "author": "Sam Soko",
+  "buildDate": "2025-11-29T04:21:08.157Z",
+  "platforms": [
+    "Windows",
+    "macOS"
+  ],
+  "requirements": {
+    "windows": "Windows 10+",
+    "macos": "macOS 10.13+",
+    "nodejs": "16+",
+    "memory": "4GB RAM minimum",
+    "storage": "200MB free space"
+  },
+  "features": [
+    "Dual oscillators with sine, sawtooth, square, triangle waves",
+    "Voltage-controlled filter (lowpass, highpass, bandpass, notch)",
+    "ADSR envelopes for amplitude and filter",
+    "LFO with pitch, filter, and amplitude modulation",
+    "Built-in reverb and delay effects",
+    "Real-time oscilloscope and spectrum analyzer",
+    "Virtual piano keyboard with computer keyboard mapping",
+    "Patch management with save/load functionality",
+    "8 factory patches included"
+  ]
+}.0",
+  "description": "Timbuk - Analog Modelling Synthesizer by Sam Soko",
+  "main": "src/main.js",
+  "author": "Sam Soko",
+  "license": "MIT",
+  "scripts": {
+    "start": "electron ."
+  },
+  "devDependencies": {
+    "electron": "^27.0.0",
+    "electron-builder": "^24.6.4"
+  },
+  "dependencies": {
+    "tone": "^14.7.77"
+  },
+  "build": {
+    "appId": "com.samsoko.timbuk",
+    "productName": "Timbuk",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "src/**/*",
+      "assets/**/*",
+      "node_modules/**/*"
+    ],
+    "mac": {
+      "category": "public.app-category.music",
+      "icon": "assets/icon.icns",
+      "hardenedRuntime": true,
+      "gatekeeperAssess": false
+    },
+    "win": {
+      "target": "nsis",
+      "icon": "assets/icon.ico"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true
+    }
+  }
+}
