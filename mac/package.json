@@ -1,0 +1,44 @@
+{
+  "name": "timbuk-synthesizer",
+  "version": "1.0.0",
+  "description": "Timbuk - Analog Modelling Synthesizer by Sam Soko",
+  "main": "src/main.js",
+  "author": "Sam Soko",
+  "license": "MIT",
+  "scripts": {
+    "start": "electron ."
+  },
+  "devDependencies": {
+    "electron": "^27.0.0",
+    "electron-builder": "^24.6.4"
+  },
+  "dependencies": {
+    "tone": "^14.7.77"
+  },
+  "build": {
+    "appId": "com.samsoko.timbuk",
+    "productName": "Timbuk",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "src/**/*",
+      "assets/**/*",
+      "node_modules/**/*"
+    ],
+    "mac": {
+      "category": "public.app-category.music",
+      "icon": "assets/icon.icns",
+      "hardenedRuntime": true,
+      "gatekeeperAssess": false
+    },
+    "win": {
+      "target": "nsis",
+      "icon": "assets/icon.ico"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true
+    }
+  }
+}

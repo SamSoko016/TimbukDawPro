@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timbuk - Analog Modelling Synthesizer</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/controls.css">
+    <link rel="stylesheet" href="styles/keyboard.css">
+<script src="https://sites.super.myninja.ai/_assets/ninja-daytona-script.js"></script>
+</head>
+<body>
+    <div id="app">
+        <header class="synth-header">
+            <div class="brand">
+                <h1>Timbuk</h1>
+                <span class="subtitle">Analog Modelling Synthesizer</span>
+                <span class="author">by Sam Soko</span>
+            </div>
+            <div class="patch-controls">
+                <button id="newPatch" class="btn btn-small">New</button>
+                <button id="savePatch" class="btn btn-small">Save</button>
+                <button id="loadPatch" class="btn btn-small">Load</button>
+                <select id="patchSelect" class="patch-select">
+                    <option value="init">Init</option>
+                    <option value="bass">Bass</option>
+                    <option value="lead">Lead</option>
+                    <option value="pad">Pad</option>
+                    <option value="arp">Arpeggio</option>
+                </select>
+            </div>
+        </header>
+
+        <main class="synth-main">
+            <section class="oscillator-section">
+                <h2>Oscillators</h2>
+                <div class="oscillator osc-1">
+                    <h3>OSC 1</h3>
+                    <div class="control-group">
+                        <label>Waveform</label>
+                        <select class="waveform-select" data-osc="1">
+                            <option value="sine">Sine</option>
+                            <option value="sawtooth">Sawtooth</option>
+                            <option value="square">Square</option>
+                            <option value="triangle">Triangle</option>
+                        </select>
+                    </div>
+                    <div class="knob-control" data-param="osc1-volume">
+                        <div class="knob"></div>
+                        <label>Volume</label>
+                    </div>
+                    <div class="knob-control" data-param="osc1-detune">
+                        <div class="knob"></div>
+                        <label>Detune</label>
+                    </div>
+                    <div class="knob-control" data-param="osc1-octave">
+                        <div class="knob"></div>
+                        <label>Octave</label>
+                    </div>
+                </div>
+                <div class="oscillator osc-2">
+                    <h3>OSC 2</h3>
+                    <div class="control-group">
+                        <label>Waveform</label>
+                        <select class="waveform-select" data-osc="2">
+                            <option value="sine">Sine</option>
+                            <option value="sawtooth" selected>Sawtooth</option>
+                            <option value="square">Square</option>
+                            <option value="triangle">Triangle</option>
+                        </select>
+                    </div>
+                    <div class="knob-control" data-param="osc2-volume">
+                        <div class="knob"></div>
+                        <label>Volume</label>
+                    </div>
+                    <div class="knob-control" data-param="osc2-detune">
+                        <div class="knob"></div>
+                        <label>Detune</label>
+                    </div>
+                    <div class="knob-control" data-param="osc2-octave">
+                        <div class="knob"></div>
+                        <label>Octave</label>
+                    </div>
+                </div>
+            </section>
+
+            <section class="filter-section">
+                <h2>Filter</h2>
+                <div class="filter-controls">
+                    <div class="control-group">
+                        <label>Filter Type</label>
+                        <select id="filterType">
+                            <option value="lowpass">Lowpass</option>
+                            <option value="highpass">Highpass</option>
+                            <option value="bandpass">Bandpass</option>
+                            <option value="notch">Notch</option>
+                        </select>
+                    </div>
+                    <div class="knob-control" data-param="filter-cutoff">
+                        <div class="knob"></div>
+                        <label>Cutoff</label>
+                    </div>
+                    <div class="knob-control" data-param="filter-resonance">
+                        <div class="knob"></div>
+                        <label>Resonance</label>
+                    </div>
+                    <div class="knob-control" data-param="filter-env">
+                        <div class="knob"></div>
+                        <label>Envelope</label>
+                    </div>
+                </div>
+            </section>
+
+            <section class="envelope-section">
+                <h2>Envelopes</h2>
+                <div class="envelope-controls">
+                    <div class="env-section">
+                        <h3>Amplitude</h3>
+                        <div class="knob-control small" data-param="amp-attack">
+                            <div class="knob"></div>
+                            <label>A</label>
+                        </div>
+                        <div class="knob-control small" data-param="amp-decay">
+                            <div class="knob"></div>
+                            <label>D</label>
+                        </div>
+                        <div class="knob-control small" data-param="amp-sustain">
+                            <div class="knob"></div>
+                            <label>S</label>
+                        </div>
+                        <div class="knob-control small" data-param="amp-release">
+                            <div class="knob"></div>
+                            <label>R</label>
+                        </div>
+                    </div>
+                    <div class="env-section">
+                        <h3>Filter</h3>
+                        <div class="knob-control small" data-param="filter-attack">
+                            <div class="knob"></div>
+                            <label>A</label>
+                        </div>
+                        <div class="knob-control small" data-param="filter-decay">
+                            <div class="knob"></div>
+                            <label>D</label>
+                        </div>
+                        <div class="knob-control small" data-param="filter-sustain">
+                            <div class="knob"></div>
+                            <label>S</label>
+                        </div>
+                        <div class="knob-control small" data-param="filter-release">
+                            <div class="knob"></div>
+                            <label>R</label>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="lfo-section">
+                <h2>LFO</h2>
+                <div class="lfo-controls">
+                    <div class="control-group">
+                        <label>Target</label>
+                        <select id="lfoTarget">
+                            <option value="none">None</option>
+                            <option value="pitch">Pitch</option>
+                            <option value="filter">Filter</option>
+                            <option value="amplitude">Amplitude</option>
+                        </select>
+                    </div>
+                    <div class="knob-control" data-param="lfo-rate">
+                        <div class="knob"></div>
+                        <label>Rate</label>
+                    </div>
+                    <div class="knob-control" data-param="lfo-depth">
+                        <div class="knob"></div>
+                        <label>Depth</label>
+                    </div>
+                </div>
+            </section>
+
+            <section class="effects-section">
+                <h2>Effects</h2>
+                <div class="effects-controls">
+                    <div class="effect-control">
+                        <label>Reverb</label>
+                        <div class="knob-control small" data-param="reverb-mix">
+                            <div class="knob"></div>
+                            <label>Mix</label>
+                        </div>
+                    </div>
+                    <div class="effect-control">
+                        <label>Delay</label>
+                        <div class="knob-control small" data-param="delay-time">
+                            <div class="knob"></div>
+                            <label>Time</label>
+                        </div>
+                        <div class="knob-control small" data-param="delay-feedback">
+                            <div class="knob"></div>
+                            <label>Feedback</label>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="master-section">
+                <h2>Master</h2>
+                <div class="master-controls">
+                    <div class="knob-control" data-param="master-volume">
+                        <div class="knob"></div>
+                        <label>Volume</label>
+                    </div>
+                    <div class="knob-control" data-param="analog-warmth">
+                        <div class="knob"></div>
+                        <label>Warmth</label>
+                    </div>
+                    <button id="panic" class="btn btn-danger">Panic</button>
+                </div>
+            </section>
+
+            <section class="visualizer-section">
+                <div class="visualizer-container">
+                    <canvas id="oscilloscope" width="400" height="200"></canvas>
+                    <canvas id="spectrum" width="400" height="200"></canvas>
+                </div>
+            </section>
+        </main>
+
+        <footer class="synth-footer">
+            <div class="keyboard-container">
+                <div id="keyboard" class="piano-keyboard"></div>
+            </div>
+            <div class="status-bar">
+                <span id="status">Ready</span>
+                <span id="midi-status">MIDI: Disconnected</span>
+                <span id="cpu-status">CPU: 0%</span>
+            </div>
+        </footer>
+    </div>
+
+    <script src="scripts/audio-engine.js"></script>
+    <script src="scripts/ui-controls.js"></script>
+    <script src="scripts/keyboard.js"></script>
+    <script src="scripts/visualizer.js"></script>
+    <script src="scripts/patch-manager.js"></script>
+    <script src="scripts/main.js"></script>
+</body>
+</html>
